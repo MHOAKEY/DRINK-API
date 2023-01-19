@@ -13,11 +13,11 @@ function renderDrinkData(drink) {
   let innerHTMLStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2>`;
   innerHTMLStr += `<h3>${drink.strCategory}</h3>`;
   innerHTMLStr += `<ul>
-  <li>${drink.strIngredient1} ${drink.strMeasure1}</li>
-  <li>${drink.strIngredient2} ${drink.strMeasure2}</li>
-  <li>${drink.strIngredient3} ${drink.strMeasure3}</li>
-  <li>${drink.strIngredient4} ${drink.strMeasure4}</li>
-  <li>${drink.strIngredient5} ${drink.strMeasure5}</li>
+  <li>${drink.strMeasure1} ${drink.strIngredient1}</li>
+  <li>${drink.strMeasure2} ${drink.strIngredient2}</li>
+  <li>${drink.strMeasure3} ${drink.strIngredient3}</li>
+  <li>${drink.strMeasure4} ${drink.strIngredient4}</li>
+  <li>${drink.strMeasure5} ${drink.strIngredient5}</li>
   </ul>`;
   innerHTMLStr += `<p><i>${drink.strInstructions}</i></p>`;
   drinkContainer.innerHTML = innerHTMLStr;
