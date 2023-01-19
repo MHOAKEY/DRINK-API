@@ -19,5 +19,6 @@ function renderDrinkData(drink) {
   <li>${drink.strIngredient4} ${drink.strMeasure4}</li>
   <li>${drink.strIngredient5} ${drink.strMeasure5}</li>
   </ul>`;
+  innerHTMLStr += `<p><i>${drink.strInstructions}</i></p>`;
   drinkContainer.innerHTML = innerHTMLStr;
 }
