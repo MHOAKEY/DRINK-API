@@ -11,6 +11,7 @@ function getDrinkData() {
 
 function renderDrinkData(drink) {
   let innerHTMLStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2>`;
+  innerHTMLStr += `<img width="250px" src="${drink.strDrinkThumb}" />`;
   innerHTMLStr += `<h3>${drink.strCategory} (<i>${drink.strGlass})</i></h3>`;
   innerHTMLStr += `<ul>
   <li>${drink.strMeasure1} <b>${drink.strIngredient1}</b></li>
