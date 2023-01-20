@@ -1,4 +1,14 @@
 const drinkContainer = document.getElementById("drinkContainer");
+const ingredientContainer = document.getElementById("ingredients");
+
+function getIngredients() {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      renderIngredientsToList(jsonResponse.drinks);
+      console.log(jsonResponse.drinks);
+    });
+}
 
 function getDrinkData() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
@@ -39,3 +49,15 @@ function renderDrinkData(drink) {
   innerHTMLStr += `<p><i>${drink.strInstructions}</i></p>`;
   drinkContainer.innerHTML = innerHTMLStr;
 }
+
+function renderIngredientsToList(ingredients) {
+  let selectIngredientStr;
+
+  ingredients.forEach((ingredient) => {
+    selectIngredientStr += `<option value="${ingredient.strIngredient1}">${ingredient.strIngredient1}</option>`;
+  });
+
+  ingredientContainer.innerHTML = selectIngredientStr;
+}
+
+getIngredients();
