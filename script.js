@@ -10,16 +10,32 @@ function getDrinkData() {
 }
 
 function renderDrinkData(drink) {
+  let arr = [];
+
+  for (let i = 1; i < 16; i++) {
+    if (
+      drink[`strIngredient${i}`] !== null &&
+      drink[`strMeasure${i}`] !== null
+    ) {
+      arr.push(drink[`strMeasure${i}`] + " " + drink[`strIngredient${i}`]);
+    } else if (
+      drink[`strIngredient${i}`] !== null &&
+      drink[`strMeasure${i}`] === null
+    ) {
+      arr.push(drink[`strIngredient${i}`]);
+    }
+  }
+
+  console.log(arr);
+
   let innerHTMLStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2>`;
   innerHTMLStr += `<img width="250px" src="${drink.strDrinkThumb}" />`;
   innerHTMLStr += `<h3>${drink.strCategory} (<i>${drink.strGlass})</i></h3>`;
-  innerHTMLStr += `<ul>
-  <li>${drink.strMeasure1} <b>${drink.strIngredient1}</b></li>
-  <li>${drink.strMeasure2} <b>${drink.strIngredient2}</b></li>
-  <li>${drink.strMeasure3} <b>${drink.strIngredient3}</b></li>
-  <li>${drink.strMeasure4} <b>${drink.strIngredient4}</b></li>
-  <li>${drink.strMeasure5} <b>${drink.strIngredient5}</b></li>
-  </ul>`;
+  innerHTMLStr += `<ul>`;
+  arr.forEach((string) => {
+    innerHTMLStr += `<li>${string}</li>`;
+  });
+  innerHTMLStr += `</ul>`;
   innerHTMLStr += `<p><i>${drink.strInstructions}</i></p>`;
   drinkContainer.innerHTML = innerHTMLStr;
 }
