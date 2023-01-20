@@ -1,12 +1,24 @@
 const drinkContainer = document.getElementById("drinkContainer");
 const ingredientContainer = document.getElementById("ingredients");
+let selectedIngredient = "";
+
+ingredientContainer.addEventListener("change", () => {
+  selectedIngredient = ingredientContainer.value;
+});
+
+function getDrinkById(idNumber) {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + idNumber)
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      renderDrinkData(jsonResponse.drinks[0]);
+    });
+}
 
 function getIngredients() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
     .then((response) => response.json())
     .then((jsonResponse) => {
       renderIngredientsToList(jsonResponse.drinks);
-      console.log(jsonResponse.drinks);
     });
 }
 
@@ -16,6 +28,18 @@ function getDrinkData() {
     .then((jsonResponse) => {
       renderDrinkData(jsonResponse.drinks[0]);
       console.log(jsonResponse.drinks[0]);
+    });
+}
+
+function getDrinkDataFromIngredientSelect() {
+  fetch(
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" +
+      selectedIngredient
+  )
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      console.log(jsonResponse);
+      getDrinkById(jsonResponse.drinks[0].idDrink);
     });
 }
 
@@ -35,8 +59,6 @@ function renderDrinkData(drink) {
       arr.push(drink[`strIngredient${i}`]);
     }
   }
-
-  console.log(arr);
 
   let innerHTMLStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2>`;
   innerHTMLStr += `<img width="250px" src="${drink.strDrinkThumb}" />`;
