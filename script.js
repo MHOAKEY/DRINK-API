@@ -27,7 +27,6 @@ function getDrinkData() {
     .then((response) => response.json())
     .then((jsonResponse) => {
       renderDrinkData(jsonResponse.drinks[0]);
-      console.log(jsonResponse.drinks[0]);
     });
 }
 
@@ -38,7 +37,6 @@ function getDrinkDataFromIngredientSelect() {
   )
     .then((response) => response.json())
     .then((jsonResponse) => {
-      console.log(jsonResponse);
       getDrinkById(jsonResponse.drinks[0].idDrink);
     });
 }
