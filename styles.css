@@ -2,3 +2,19 @@
   height: 100px;
   width: 250px;
 }
+
+#h1 {
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 250px 250px;
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 20px;
+}
+
+.grid-item-5 {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
