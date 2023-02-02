@@ -1,11 +1,43 @@
 const drinkContainer = document.getElementById("drinkContainer");
+const ingredientContainer = document.getElementById("ingredients");
+let selectedIngredient = "";
+
+ingredientContainer.addEventListener("change", () => {
+  selectedIngredient = ingredientContainer.value;
+});
+
+function getDrinkById(idNumber) {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + idNumber)
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      renderDrinkData(jsonResponse.drinks[0]);
+    });
+}
+
+function getIngredients() {
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      renderIngredientsToList(jsonResponse.drinks);
+    });
+}
 
 function getDrinkData() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
     .then((response) => response.json())
     .then((jsonResponse) => {
       renderDrinkData(jsonResponse.drinks[0]);
-      console.log(jsonResponse.drinks[0]);
+    });
+}
+
+function getDrinkDataFromIngredientSelect() {
+  fetch(
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" +
+      selectedIngredient
+  )
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      getDrinkById(jsonResponse.drinks[0].idDrink);
     });
 }
 
@@ -26,8 +58,6 @@ function renderDrinkData(drink) {
     }
   }
 
-  console.log(arr);
-
   let innerHTMLStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2>`;
   innerHTMLStr += `<img width="250px" src="${drink.strDrinkThumb}" />`;
   innerHTMLStr += `<h3>${drink.strCategory} (<i>${drink.strGlass})</i></h3>`;
@@ -39,3 +69,15 @@ function renderDrinkData(drink) {
   innerHTMLStr += `<p><i>${drink.strInstructions}</i></p>`;
   drinkContainer.innerHTML = innerHTMLStr;
 }
+
+function renderIngredientsToList(ingredients) {
+  let selectIngredientStr;
+
+  ingredients.forEach((ingredient) => {
+    selectIngredientStr += `<option value="${ingredient.strIngredient1}">${ingredient.strIngredient1}</option>`;
+  });
+
+  ingredientContainer.innerHTML = selectIngredientStr;
+}
+
+getIngredients();
