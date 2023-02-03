@@ -4,14 +4,15 @@ body {
 }
 
 #random {
-  height: 100px;
+  height: 76px;
   width: 250px;
 }
 
 .grid-container {
+  align-items: center;
   display: grid;
   grid-template-columns: 250px 250px;
-  grid-auto-rows: minmax(150px, auto);
+  grid-auto-rows: minmax(auto, auto);
   grid-gap: 40px;
 }
 
@@ -19,6 +20,12 @@ body {
   grid-column-start: 1;
   grid-column-end: -1;
   text-align: center;
+}
+
+.grid-item-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .grid-item-6 {

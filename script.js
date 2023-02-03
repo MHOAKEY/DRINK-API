@@ -82,6 +82,7 @@ function renderDrinkData(drink) {
 
 function renderIngredientsToList(ingredients) {
   let selectIngredientStr;
+  selectIngredientStr += `<option>Select Ingredient</option>`;
 
   ingredients.forEach((ingredient) => {
     selectIngredientStr += `<option value="${ingredient.strIngredient1}">${ingredient.strIngredient1}</option>`;
