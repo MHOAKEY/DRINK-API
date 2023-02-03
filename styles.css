@@ -38,3 +38,7 @@ body {
   grid-column-start: 1;
   grid-column-end: -1;
 }
+
+#submitIngredient {
+  border-radius: 8px;
+}

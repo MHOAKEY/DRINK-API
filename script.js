@@ -76,7 +76,7 @@ function renderDrinkData(drink) {
   typeIngredientsInHtmlStr += `<ul>`;
   drinkTypeIngredients.innerHTML = typeIngredientsInHtmlStr;
 
-  let instructionsInHtmlStr = `<p><i>${drink.strInstructions}</i></p>`;
+  const instructionsInHtmlStr = `<p><i>${drink.strInstructions}</i></p>`;
   drinkInstructions.innerHTML = instructionsInHtmlStr;
 }
 
