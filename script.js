@@ -64,7 +64,7 @@ function renderDrinkData(drink) {
     }
   }
 
-  let innerHTMLStr = `<img width="250px" src="${drink.strDrinkThumb}" />`;
+  let innerHTMLStr = `<img width="200px" src="${drink.strDrinkThumb}" />`;
   drinkContainer.innerHTML = innerHTMLStr;
 
   let typeIngredientsInHtmlStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2>`;

@@ -6,8 +6,8 @@ body {
 #random {
   border-radius: 12px;
   font-size: 150%;
-  height: 80px;
-  width: 250px;
+  height: 100px;
+  width: 200px;
 }
 
 #random:hover {
@@ -17,9 +17,9 @@ body {
 .grid-container {
   align-items: center;
   display: grid;
-  grid-template-columns: 250px 250px;
+  grid-template-columns: 200px 200px;
   grid-auto-rows: minmax(auto, auto);
-  grid-gap: 40px;
+  grid-gap: 20px;
 }
 
 .grid-item-1 {
