@@ -4,8 +4,14 @@ body {
 }
 
 #random {
-  height: 76px;
+  border-radius: 12px;
+  font-size: 150%;
+  height: 80px;
   width: 250px;
+}
+
+#random:hover {
+  font-size: 165%;
 }
 
 .grid-container {
