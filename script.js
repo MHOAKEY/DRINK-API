@@ -1,4 +1,10 @@
-const drinkContainer = document.getElementById("drinkContainer");
+const drinkContainer = document.getElementById("drinkContainer-image");
+const drinkTypeIngredients = document.getElementById(
+  "drinkContainer-typeAndIngredients"
+);
+const drinkInstructions = document.getElementById(
+  "drinkContainer-instructions"
+);
 const ingredientContainer = document.getElementById("ingredients");
 let selectedIngredient = "";
 
@@ -58,20 +64,25 @@ function renderDrinkData(drink) {
     }
   }
 
-  let innerHTMLStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2>`;
-  innerHTMLStr += `<img width="250px" src="${drink.strDrinkThumb}" />`;
-  innerHTMLStr += `<h3>${drink.strCategory} (<i>${drink.strGlass})</i></h3>`;
-  innerHTMLStr += `<ul>`;
-  arr.forEach((string) => {
-    innerHTMLStr += `<li>${string}</li>`;
-  });
-  innerHTMLStr += `</ul>`;
-  innerHTMLStr += `<p><i>${drink.strInstructions}</i></p>`;
+  let innerHTMLStr = `<img width="250px" src="${drink.strDrinkThumb}" />`;
   drinkContainer.innerHTML = innerHTMLStr;
+
+  let typeIngredientsInHtmlStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2>`;
+  arr.forEach((string) => {
+    typeIngredientsInHtmlStr += `<li>${string}</li>`;
+  });
+  typeIngredientsInHtmlStr += `</ul>`;
+  typeIngredientsInHtmlStr += `<h3>${drink.strCategory} (<i>${drink.strGlass})</i></h3>`;
+  typeIngredientsInHtmlStr += `<ul>`;
+  drinkTypeIngredients.innerHTML = typeIngredientsInHtmlStr;
+
+  const instructionsInHtmlStr = `<p><i>${drink.strInstructions}</i></p>`;
+  drinkInstructions.innerHTML = instructionsInHtmlStr;
 }
 
 function renderIngredientsToList(ingredients) {
   let selectIngredientStr;
+  selectIngredientStr += `<option>Select Ingredient</option>`;
 
   ingredients.forEach((ingredient) => {
     selectIngredientStr += `<option value="${ingredient.strIngredient1}">${ingredient.strIngredient1}</option>`;

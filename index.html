@@ -8,20 +8,30 @@
     <title>RANDOM DRINK</title>
   </head>
   <body>
-    <h1>GET DRINKIN'!</h1>
-    <div>
-      <button id="random" onclick="getDrinkData()">RANDOM DRINK</button>
+    <div class="grid-container">
+      <div class="grid-item grid-item-1">
+        <h1 id="h1">LET'S GET DRINKIN'!</h1>
+      </div>
+      <div class="grid-item grid-item-2">
+        <button id="random" onclick="getDrinkData()">RANDOM DRINK</button>
+      </div>
+      <div class="grid-item grid-item-3">
+        <label for="ingredients">Ingredient List:</label>
+        <select name="ingredients" id="ingredients"></select>
+        <button
+          id="submitIngredient"
+          onclick="getDrinkDataFromIngredientSelect()"
+        >
+          GET DRINK FROM INGREDIENT
+        </button>
+      </div>
+      <div id="drinkContainer-image" class="grid-item grid-item-4"></div>
+      <div
+        id="drinkContainer-typeAndIngredients"
+        class="grid-item grid-item-5"
+      ></div>
+      <div id="drinkContainer-instructions" class="grid-item grid-item-6"></div>
     </div>
-    <div>
-    </br>
-      <label for="ingredients">Ingredient List</label>
-      <select name="ingredients" id="ingredients"></select>
-    </div>
-    <div>
-    </br>
-        <button id="submitIngredient" onclick="getDrinkDataFromIngredientSelect()">GET DRINK FROM INGREDIENT</button>
-    </div>
-    <div id="drinkContainer"></div>
     <footer>
       <script src="script.js"></script>
     </footer>
