@@ -92,3 +92,4 @@ function renderIngredientsToList(ingredients) {
 }
 
 getIngredients();
+getDrinkData();
