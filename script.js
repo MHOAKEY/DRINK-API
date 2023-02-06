@@ -67,11 +67,11 @@ function renderDrinkData(drink) {
   let innerHTMLStr = `<img id="drinkImg" width="100%" src="${drink.strDrinkThumb}" />`;
   drinkContainer.innerHTML = innerHTMLStr;
 
-  let typeIngredientsInHtmlStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2>`;
+  let typeIngredientsInHtmlStr = `<h2>${drink.strDrink} (${drink.strAlcoholic})</h2><ul>`;
   arr.forEach((string) => {
-    typeIngredientsInHtmlStr += `<ul><li>${string}</li></ul>`;
+    typeIngredientsInHtmlStr += `<li>${string}</li>`;
   });
-  typeIngredientsInHtmlStr += `<h3>${drink.strCategory} (<i>${drink.strGlass})</i></h3>`;
+  typeIngredientsInHtmlStr += `</ul><h3>${drink.strCategory} (<i>${drink.strGlass})</i></h3>`;
   drinkTypeIngredients.innerHTML = typeIngredientsInHtmlStr;
 
   const instructionsInHtmlStr = `<p><i>${drink.strInstructions}</i></p>`;
