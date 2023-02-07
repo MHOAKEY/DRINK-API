@@ -30,15 +30,16 @@ body {
   text-align: center;
 }
 
-.grid-item-3 {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.grid-item-5 {
+  align-self: start;
+  justify-self: start;
 }
 
 .grid-item-6 {
+  align-self: end;
   grid-column-start: 1;
   grid-column-end: -1;
+  padding-left: 2%;
 }
 
 html {
@@ -56,7 +57,7 @@ img {
 
 #random {
   padding: 15px 25px;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
   cursor: pointer;
   outline: none;
@@ -78,13 +79,26 @@ img {
 }
 
 #submitIngredient {
-  border: 1.5px solid;
-  border-radius: 5px;
-  background: none;
+  padding: 15px 25px;
+  font-size: 10px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04aa6d;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
 
 #submitIngredient:hover {
-  background-color: rgb(254, 212, 161);
+  background-color: #3e8e41;
   border-color: black;
   cursor: pointer;
+}
+
+#submitIngredient:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
