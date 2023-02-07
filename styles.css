@@ -3,6 +3,10 @@ body {
   justify-content: center;
 }
 
+#submitIngredient {
+  margin-top: 3%;
+}
+
 #drinkImg {
   border-radius: 50%;
 }
